@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTO Birthday Bonanza</title>
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(45deg, #ff00ff, #00ffff);
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        color: #ffcc00;
+        text-align: center;
+        overflow: hidden;
+        animation: rainbowBg 10s linear infinite;
+      }
+
+      @keyframes rainbowBg {
+        0% {
+          background: red;
+        }
+        25% {
+          background: yellow;
+        }
+        50% {
+          background: lime;
+        }
+        75% {
+          background: cyan;
+        }
+        100% {
+          background: magenta;
+        }
+      }
+
+      h1 {
+        font-size: 5rem;
+        margin-top: 2rem;
+        text-shadow: 3px 3px 10px black;
+        transform: rotate(-5deg);
+      }
+
+      .emoji-rain {
+        font-size: 2rem;
+        position: absolute;
+        animation: fall 5s linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      .meme {
+        margin-top: 3rem;
+        width: 80vw;
+        max-width: 500px;
+        border: 10px dashed hotpink;
+        box-shadow: 0 0 20px yellow;
+      }
+
+      button {
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        font-size: 2rem;
+        background: gold;
+        border: 5px solid purple;
+        border-radius: 50px;
+        cursor: pointer;
+        animation: shake 0.5s infinite;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(2deg);
+        }
+        50% {
+          transform: rotate(-2deg);
+        }
+        75% {
+          transform: rotate(2deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎉 HAAAAAPPY BIRTHDAY VICTOR 🥳</h1>
+    <img
+      class="meme"
+      src="https://i.ibb.co/7hdvH6C/screenshot-2025-04-17-at-17-58-47-720.png"
+      alt="CTO Meme"
+    />
+    <br />
+    <button onclick="playMusic()">Click Me for 🔥B-Day Beats🔥</button>
+    <audio id="birthday-audio">
+      <source
+        src="https://www.myinstants.com/media/sounds/trololo.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      const emojis = [
+        "🎂",
+        "💥",
+        "🦄",
+        "🚀",
+        "🤡",
+        "🍕",
+        "💻",
+        "👽",
+        "🎈",
+        "🥸",
+      ];
+
+      function createEmojiRain() {
+        const emoji = document.createElement("div");
+        emoji.classList.add("emoji-rain");
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.animationDuration = Math.random() * 3 + 2 + "s";
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 5000);
+      }
+
+      setInterval(createEmojiRain, 200);
+
+      function playMusic() {
+        document.getElementById("birthday-audio").play();
+      }
+    </script>
+  </body>
+</html>
